@@ -1,0 +1,37 @@
+  // creating a subTag
+               let aa = await TAG_MODEL.insertMany([
+                    { name: "Machine Learning" },
+                    { name: "Deep Learning" },
+                    { name: "Natural Language Processing" },
+               ]);
+
+               let aad = aa.map(e => { return e._id });
+
+
+               let af = await TAG_MODEL.findById('67d672ad0d9626852be0b9f6');
+
+               af.subTags =[ af.subTags , ...aad];
+               await af.save();
+
+               console.log(af.subTags)
+
+
+
+query NavbarDropDown($tags: [String]) {
+  navbarDropDown(tags: $tags) {
+    _id
+    name
+    data {
+      _id
+      name
+      blogs {
+        title
+        _id
+
+      }
+    }
+  }
+}
+{
+  "tags": ["Ai","Money","Home","Tech","Trending","Entertainment","Wellness","Deals","Gift Guide","Cover Stories"]
+}

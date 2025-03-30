@@ -1,0 +1,24 @@
+  npm i @apollo/server bcryptjs body-parser compression cookie cors dotenv express graphql jsonwebtoken mongoose morgan multer node-cache nodemailer socket.io
+
+
+  check before doing backend --------------
+  1.Oauth in google and clerk
+
+
+  connnections -----
+  1. mongodb
+  2. redis (for cache)
+  3. bullmq (for background processing , and queues)
+  4. logger for apis , auths , 
+  5. monitoring system
+
+  some comman tasks to complete -------------
+  1. fakerjs and seeding of database
+  2. plan Authentication for bussiness and simple users
+  3. plan notification system
+  
+
+
+
+
+  auth api -> authenticated by header (api secreate) -> ratelimit

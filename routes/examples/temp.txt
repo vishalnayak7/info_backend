@@ -1,0 +1,79 @@
+import { USER_MODEL } from '../models/users.js';
+import { BLOG_MODEL } from '../models/blogs.js';
+import { faker } from '@faker-js/faker';
+
+
+
+
+
+router.get('/blogs', async (req, res) => {
+     let data = await BLOG_MODEL.find();
+     res.json(data)
+})
+
+
+router.get("/test", authLimiter, async (req, res) => {
+
+     // 67a6fb2d24e2607c93f5a806
+     // let data = await USER_MODEL.create({
+     //      username: "Pruthatek",
+     //      email: "test",
+     //      password: "test",
+     //      accountType: "Simple"
+     // });
+
+     // let data = await USER_MODEL.find();
+
+     // console.log(data);
+
+     // seeding the database
+
+
+
+
+     const seedBlogs = async () => {
+          try {
+               // Fetch random users, tags, polls, and accordions
+               const users = await USER_MODEL.find();
+
+
+               if (users.length === 0) {
+                    console.log("No users found. Please seed users first.");
+                    return;
+               }
+
+               let blogs = [];
+
+               for (let i = 0; i < 100; i++) {  // Creating 10 fake blogs
+                    blogs.push({
+                         title: faker.lorem.sentence(),
+                         slug: faker.lorem.slug(),
+                         thumbnail: faker.image.url(),
+                         subTitle: faker.lorem.sentence(),
+                         content: faker.lorem.paragraphs(5),
+                         author: users[Math.floor(Math.random() * users.length)]._id,
+                         likes: faker.number.int({ min: 0, max: 1000 }),
+                         isGlobal: faker.datatype.boolean(),
+                    });
+               }
+
+               await BLOG_MODEL.insertMany(blogs);
+               console.log("Database Seeded Successfully!");
+
+          } catch (error) {
+               console.error("Seeding Error:", error);
+               mongoose.connection.close();
+          }
+     };
+
+     seedBlogs();
+
+
+
+
+
+     // logger.info("test api called");
+     res.json({
+          status: true,
+     })
+})

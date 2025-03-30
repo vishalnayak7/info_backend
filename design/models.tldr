@@ -1,0 +1,316 @@
+{
+	"tldrawFileFormatVersion": 1,
+	"schema": {
+		"schemaVersion": 2,
+		"sequences": {
+			"com.tldraw.store": 4,
+			"com.tldraw.asset": 1,
+			"com.tldraw.camera": 1,
+			"com.tldraw.document": 2,
+			"com.tldraw.instance": 25,
+			"com.tldraw.instance_page_state": 5,
+			"com.tldraw.page": 1,
+			"com.tldraw.instance_presence": 6,
+			"com.tldraw.pointer": 1,
+			"com.tldraw.shape": 4,
+			"com.tldraw.asset.bookmark": 2,
+			"com.tldraw.asset.image": 5,
+			"com.tldraw.asset.video": 5,
+			"com.tldraw.shape.group": 0,
+			"com.tldraw.shape.text": 2,
+			"com.tldraw.shape.bookmark": 2,
+			"com.tldraw.shape.draw": 2,
+			"com.tldraw.shape.geo": 9,
+			"com.tldraw.shape.note": 8,
+			"com.tldraw.shape.line": 5,
+			"com.tldraw.shape.frame": 0,
+			"com.tldraw.shape.arrow": 5,
+			"com.tldraw.shape.highlight": 1,
+			"com.tldraw.shape.embed": 4,
+			"com.tldraw.shape.image": 4,
+			"com.tldraw.shape.video": 2,
+			"com.tldraw.binding.arrow": 0
+		}
+	},
+	"records": [
+		{
+			"gridSize": 10,
+			"name": "",
+			"meta": {},
+			"id": "document:document",
+			"typeName": "document"
+		},
+		{
+			"meta": {},
+			"id": "page:page",
+			"name": "Models",
+			"index": "a1",
+			"typeName": "page"
+		},
+		{
+			"meta": {},
+			"id": "page:Fktba46GG3Dar78KEMhIo",
+			"name": "techonologys and features",
+			"index": "a26Vb",
+			"typeName": "page"
+		},
+		{
+			"x": -157.19081168627878,
+			"y": 482.4969937166712,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:aZHkA5a4RY5L2-olLKG5C",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "m",
+				"w": 360.96524686892246,
+				"text": "1. Users \n1.2. Bussiness Accounts\n2. blogs\n3. comments\n4. notifications\n5. Achivements\n6. tags",
+				"font": "serif",
+				"textAlign": "start",
+				"autoSize": false,
+				"scale": 1
+			},
+			"parentId": "page:page",
+			"index": "a1",
+			"typeName": "shape"
+		},
+		{
+			"x": 279.0650329059681,
+			"y": 114.55529797588767,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:2-9C4__aW6CXiAXEN3Iu2",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "m",
+				"w": 704.4604446976311,
+				"text": "1. addvertisement system ( charges by days )\n2. Simple Acc ,  Bussiness Acc (for runnig adv)\n3. user following system\n4. on following sent notification to their followers (new Posts)\n5. pols inbetween the blogs\n6. comments systems ( Comment and replys to that comment only)\n7. Achivements system for Blogs writer. \n      -- 1st blogs liked achivement\n      -- 1blog , 10blog , 100b blog writed achivements\n      -- etc ..\n      -- 100 likes acivement , 10k likes achivemnts\n8. accordian in end of blogs (not necessary)\n9. button for Global and Local blogs (default global )\n10.",
+				"font": "serif",
+				"textAlign": "start",
+				"autoSize": false,
+				"scale": 1.0097561727202753
+			},
+			"parentId": "page:Fktba46GG3Dar78KEMhIo",
+			"index": "a1",
+			"typeName": "shape"
+		},
+		{
+			"x": 331.32507370322315,
+			"y": 55.11511109382192,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:jEB_Ilpq_val5fJu_IM_6",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "m",
+				"w": 349.8985297947524,
+				"text": "---- Features to implenets -----",
+				"font": "serif",
+				"textAlign": "start",
+				"autoSize": false,
+				"scale": 1
+			},
+			"parentId": "page:Fktba46GG3Dar78KEMhIo",
+			"index": "a25yl",
+			"typeName": "shape"
+		},
+		{
+			"x": 1281.2724971499197,
+			"y": 55.11511109382192,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:VjLqv3xdQVowcW4-1kSJt",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "m",
+				"w": 408.3933152889622,
+				"text": "--- pages ---",
+				"font": "serif",
+				"textAlign": "start",
+				"autoSize": false,
+				"scale": 1
+			},
+			"parentId": "page:Fktba46GG3Dar78KEMhIo",
+			"index": "a35U2",
+			"typeName": "shape"
+		},
+		{
+			"x": 1797.700136425558,
+			"y": 55.11511109382192,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:BjhTwufP832l8o8PXJaDj",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "m",
+				"w": 408.3933152889622,
+				"text": "--- dashboards ---",
+				"font": "serif",
+				"textAlign": "start",
+				"autoSize": false,
+				"scale": 1
+			},
+			"parentId": "page:Fktba46GG3Dar78KEMhIo",
+			"index": "a499q",
+			"typeName": "shape"
+		},
+		{
+			"x": 1236.7497018904896,
+			"y": 114.55529797588767,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:h87eV1Fh6RXv-qYHnLOgN",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "m",
+				"w": 288.4872726996382,
+				"text": "1.Home page of Info\n2.blogs/\n3. auth /login \n              / createAccount\n4. tags/ blogs",
+				"font": "serif",
+				"textAlign": "start",
+				"autoSize": false,
+				"scale": 1
+			},
+			"parentId": "page:Fktba46GG3Dar78KEMhIo",
+			"index": "Zz4g4",
+			"typeName": "shape"
+		},
+		{
+			"x": 1762.6748247387354,
+			"y": 114.55529797588767,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:aCcoI3ZS4SVlvit7KPGZW",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "m",
+				"w": 339.53636917920267,
+				"text": "1. Author or simple user \n2. bussiness account (ads managgement)\n3. Admin (pruthatek)",
+				"font": "serif",
+				"textAlign": "start",
+				"autoSize": false,
+				"scale": 1
+			},
+			"parentId": "page:Fktba46GG3Dar78KEMhIo",
+			"index": "a06D5",
+			"typeName": "shape"
+		},
+		{
+			"id": "pointer:pointer",
+			"typeName": "pointer",
+			"x": 8.674985274354754,
+			"y": 685.736420861441,
+			"lastActivityTimestamp": 1738992367231,
+			"meta": {}
+		},
+		{
+			"followingUserId": null,
+			"opacityForNextShape": 1,
+			"stylesForNextShape": {},
+			"brush": null,
+			"scribbles": [],
+			"cursor": {
+				"type": "default",
+				"rotation": 0
+			},
+			"isFocusMode": false,
+			"exportBackground": true,
+			"isDebugMode": false,
+			"isToolLocked": false,
+			"screenBounds": {
+				"x": 0,
+				"y": 0,
+				"w": 1032,
+				"h": 393.3333435058594
+			},
+			"insets": [
+				false,
+				false,
+				true,
+				false
+			],
+			"zoomBrush": null,
+			"isGridMode": false,
+			"isPenMode": false,
+			"chatMessage": "",
+			"isChatting": false,
+			"highlightedUserIds": [],
+			"isFocused": true,
+			"devicePixelRatio": 1.5,
+			"isCoarsePointer": false,
+			"isHoveringCanvas": true,
+			"openMenus": [],
+			"isChangingStyle": false,
+			"isReadonly": false,
+			"meta": {},
+			"duplicateProps": null,
+			"id": "instance:instance",
+			"currentPageId": "page:page",
+			"typeName": "instance"
+		},
+		{
+			"editingShapeId": null,
+			"croppingShapeId": null,
+			"selectedShapeIds": [],
+			"hoveredShapeId": null,
+			"erasingShapeIds": [],
+			"hintingShapeIds": [],
+			"focusedGroupId": null,
+			"meta": {},
+			"id": "instance_page_state:page:Fktba46GG3Dar78KEMhIo",
+			"pageId": "page:Fktba46GG3Dar78KEMhIo",
+			"typeName": "instance_page_state"
+		},
+		{
+			"editingShapeId": null,
+			"croppingShapeId": null,
+			"selectedShapeIds": [
+				"shape:aZHkA5a4RY5L2-olLKG5C"
+			],
+			"hoveredShapeId": "shape:aZHkA5a4RY5L2-olLKG5C",
+			"erasingShapeIds": [],
+			"hintingShapeIds": [],
+			"focusedGroupId": null,
+			"meta": {},
+			"id": "instance_page_state:page:page",
+			"pageId": "page:page",
+			"typeName": "instance_page_state"
+		},
+		{
+			"x": -142.63824219385822,
+			"y": 89.05377017583072,
+			"z": 0.46911607072143097,
+			"meta": {},
+			"id": "camera:page:Fktba46GG3Dar78KEMhIo",
+			"typeName": "camera"
+		},
+		{
+			"x": 409.1605849367434,
+			"y": -394.33524509462325,
+			"z": 0.8304702249851281,
+			"meta": {},
+			"id": "camera:page:page",
+			"typeName": "camera"
+		}
+	]
+}
