@@ -2981,3 +2981,17 @@
 2025-03-29T14:26:19.901Z [INFO]: [Glb] Database Connection is succesfull !!
 2025-03-29T14:26:56.812Z [INFO]: [Glb] Server running at http://localhost:8000
 2025-03-29T14:26:57.269Z [INFO]: [Glb] Database Connection is succesfull !!
+2025-03-31T05:17:34.831Z [INFO]: [Glb] Server running at http://localhost:8000
+2025-03-31T05:17:35.324Z [INFO]: [Glb] Database Connection is succesfull !!
+2025-03-31T05:19:03.788Z [INFO]: [Glb] Server running at http://localhost:8000
+2025-03-31T05:19:05.279Z [INFO]: [Glb] Server running at http://localhost:8000
+2025-03-31T05:19:05.603Z [INFO]: [Glb] Database Connection is succesfull !!
+2025-03-31T05:19:20.043Z [ERROR]: [Glb] Unhandled Promise Rejection: Converting circular structure to JSON
+    --> starting at object with constructor 'MongoClient'
+    |     property 's' -> object with constructor 'Object'
+    |     property 'sessionPool' -> object with constructor 'ServerSessionPool'
+    --- property 'client' closes the circle
+2025-03-31T05:19:43.295Z [INFO]: [Glb] Server running at http://localhost:8000
+2025-03-31T05:19:43.704Z [INFO]: [Glb] Database Connection is succesfull !!
+2025-03-31T05:43:49.322Z [INFO]: [Glb] Server running at http://localhost:8000
+2025-03-31T05:43:49.830Z [INFO]: [Glb] Database Connection is succesfull !!

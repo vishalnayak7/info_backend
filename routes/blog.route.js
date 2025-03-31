@@ -31,5 +31,10 @@ router.get("/search/:query", async (req, res) => {
      res.json(results);
 });
 
+router.get('/getStaticParams', async (req, res) => {
+     let data = await BLOG_MODEL.find().sort({ createdAt: -1 }).limit(50);
+     res.json(data)
+})
+
 export const BlogRouter = router;
 

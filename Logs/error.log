@@ -47,3 +47,8 @@
 2025-03-23T14:43:42.869Z [ERROR]: [Glb] Error in connection to database
 2025-03-25T06:54:37.622Z [ERROR]: [Glb] Unhandled Promise Rejection: Cast to ObjectId failed for value "$author" (type string) at path "following" for model "Follow"
 2025-03-26T10:01:27.648Z [ERROR]: [Api] [createAccordian] countFollowers is not defined
+2025-03-31T05:19:20.043Z [ERROR]: [Glb] Unhandled Promise Rejection: Converting circular structure to JSON
+    --> starting at object with constructor 'MongoClient'
+    |     property 's' -> object with constructor 'Object'
+    |     property 'sessionPool' -> object with constructor 'ServerSessionPool'
+    --- property 'client' closes the circle
