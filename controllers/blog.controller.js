@@ -49,6 +49,7 @@ export const createBlog = asyncHandler(async (req, res) => {
 
      await blog.save();
 
+     
      // send in queue -> create a statisctic document
      let stati = await STATISTICS_MODEL.create({
           blog_id: blog._id

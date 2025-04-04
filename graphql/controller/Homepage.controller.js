@@ -65,7 +65,55 @@ class Homepage {
                     }
                ])
 
-               let data =  blog?.map((item) => {
+               if (blog.length === 0) {
+                    blog = await BLOG_MODEL.aggregate([
+                         {
+                              $match: {
+                                   createdAt: { $gte: new Date(new Date().setDate(new Date().getDate() - 20)) }
+                              }
+                         },
+
+                         {
+                              $lookup: {
+                                   from: 'statistics',  // Collection name of Statistics
+                                   localField: 'statistic',
+                                   foreignField: '_id',
+                                   as: 'stats'
+                              },
+                              $lookup: {
+                                   from: 'users',  // Collection name of Statistics
+                                   localField: 'author',
+                                   foreignField: '_id',
+                                   as: 'authorDetails'
+                              }
+                         },
+                         {
+                              $addFields: {
+                                   likes: { $size: { $ifNull: [{ $arrayElemAt: ['$stats.likes', 0] }, []] } }
+                              }
+                         },
+                         { $sort: { likesCount: -1 } },
+
+                         { $limit: 5 },
+                         {
+                              $project: {
+                                   title: 1,
+                                   thumbnail: 1,
+                                   slug: 1,
+                                   likes: 1,
+                                   timeRequired: 1,
+                                   createdAt: 1,
+                                   authorDetails: {
+                                        _id: 1,
+                                        username: 1,
+
+                                   }
+                              }
+                         }
+                    ])
+               }
+
+               let data = blog?.map((item) => {
 
                     return {
                          ...item,
@@ -74,9 +122,9 @@ class Homepage {
                          }
                     }
                })
-             
+
                return data
- 
+
           } catch (error) {
                console.error("Error fetching events:", error);
 
@@ -147,7 +195,54 @@ class Homepage {
                          }
                     }
                ])
-               let data =  blog?.map((item) => {
+               if (blog.length === 0) {
+                    blog = await BLOG_MODEL.aggregate([
+                         {
+                              $match: {
+                                   createdAt: { $gte: new Date(new Date().setDate(new Date().getDate() - 20)) }
+                              }
+                         },
+                         {
+                              $lookup: {
+                                   from: 'statistics',
+                                   localField: 'statistic',
+                                   foreignField: '_id',
+                                   as: 'stats'
+                              },
+                              $lookup: {
+                                   from: 'users',  // Collection name of Statistics
+                                   localField: 'author',
+                                   foreignField: '_id',
+                                   as: 'authorDetails'
+                              }
+                         },
+                         {
+                              $addFields: {
+                                   views: { $size: { $ifNull: [{ $arrayElemAt: ['$stats.views', 0] }, []] } }
+                              }
+                         },
+                         { $sort: { views: -1 } },
+                         { $limit: 10 },
+                         {
+                              $project: {
+                                   title: 1,
+                                   subTitle: 1,
+                                   thumbnail: 1,
+                                   slug: 1,
+                                   views: 1,
+                                   timeRequired: 1,
+                                   createdAt: 1,
+                                   authorDetails: {
+                                        username: 1,
+                                        avatar: 1,
+                                        bio: 1
+                                   }
+                              }
+                         }
+                    ])
+
+               }
+               let data = blog?.map((item) => {
 
                     return {
                          ...item,
@@ -156,7 +251,7 @@ class Homepage {
                          }
                     }
                })
-             
+
                return data
           } catch (error) {
                console.error("Error fetching events:", error);
