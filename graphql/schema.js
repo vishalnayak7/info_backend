@@ -132,6 +132,9 @@ followers:Int
 type BlogPagination {
   blog: [Blog]
   totalCount: Int
+  page: Int
+  limit: Int
+  totalPages: Int
 }
 
 type Query {
@@ -147,6 +150,7 @@ getTags(page: Int = 1, limit: Int = 10): TagPagination
 searchTags(name: String): [Tag]
 getBlogs(page: Int = 1, limit: Int = 10): BlogPagination
 
+getBlogsBySlugOfUser(slug: String!, page: Int = 1, limit: Int = 10): BlogPagination
 
 getBlogById(_id: ID!): Blog
 getBlogBySlug(slug: String!): Blog
@@ -177,8 +181,6 @@ createTag(name: String): Response
 deleteTag(_id: ID): Response
 
 }
-
-
 
  
 `;

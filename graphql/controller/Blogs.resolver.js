@@ -2,6 +2,8 @@ import { GraphQLError } from 'graphql';
 import { BLOG_MODEL } from '../../models/blogs.js'
 import { TAG_MODEL } from '../../models/achivement_tags.js';
 import { USER_MODEL } from '../../models/users.js';
+import mongoose from 'mongoose';
+import { countFollowers } from '../../utilites/helperFunctions.js';
 
 class BlogResolver {
 
@@ -150,16 +152,29 @@ class BlogResolver {
                     throw new Error('Field "slug" is required.');
                }
 
-               let blog_by_slug = await BLOG_MODEL.findOne({ slug }).populate('tags');
 
-               // check for caching
-               let is_Blog = await BLOG_MODEL.find({ slug: { $ne: slug }, tags: { $in: blog_by_slug.tags.map(e => e._id) } }).populate(' author ').lean().limit(10)
+
+               let is_Blog = await BLOG_MODEL.findOne({ slug: slug }).populate('tags').lean()
 
                if (!is_Blog) {
                     throw new Error('Blog not found.');
                }
 
-               return is_Blog;
+               let blogs_by_tags = await BLOG_MODEL.find({ tags: { $in: is_Blog.tags.map((e) => { return e._id }) } }).populate('author statistic').lean()
+
+
+               console.log(blogs_by_tags)
+
+               let final_sorted_blogs = blogs_by_tags.sort((a, b) => (b.statistic?.views || 0) - (a.statistic?.views || 0)).slice(0, 16);
+
+               let tempData = await Promise.all(final_sorted_blogs.map(async (item) => {
+                    let data = await countFollowers(item.author._id);
+                    let newOB = { ...item.author, followers: data }
+
+                    return { ...item, author: newOB };
+               }))
+
+               return tempData;
 
           } catch (error) {
                console.error("Error fetching events:", error);
@@ -181,14 +196,25 @@ class BlogResolver {
                     throw new Error('Field "username" is required.');
                }
 
+               let is_Blog = await BLOG_MODEL.find({ author: { $in: username } })
+                    .populate("author statistic")
+                    .lean();
 
-               let is_Blog = await BLOG_MODEL.find().limit(3).populate("author").skip(10)
-
-               if (!is_Blog) {
+               if (!is_Blog || is_Blog.length === 0) {
                     throw new Error('Blog not found.');
                }
 
-               return is_Blog;
+               is_Blog = is_Blog.sort((a, b) => (b.statistic?.views || 0) - (a.statistic?.views || 0)).slice(0, 8);
+
+               console.log(is_Blog)
+               let tempData = await Promise.all(is_Blog.map(async (item) => {
+                    let data = await countFollowers(item.author._id);
+                    let newOB = { ...item.author, followers: data }
+
+                    return { ...item, author: newOB };
+               }))
+
+               return tempData;
 
           } catch (error) {
                console.error("Error fetching events:", error);
@@ -208,7 +234,7 @@ class BlogResolver {
           try {
                // check for caching
                let is_Blog = await BLOG_MODEL.find().populate('accordians  author  polls tags').lean().limit(6).sort({ createdAt: -1 })
-             
+
                return is_Blog;
 
           } catch (error) {
@@ -272,9 +298,7 @@ class BlogResolver {
                });
           }
      }
-
-
-
+ 
      async getBlogs({ page = 1, limit = 10 }) {
           try {
 
@@ -290,7 +314,7 @@ class BlogResolver {
                     .sort({ createdAt: -1 })
                     .lean();
 
-               
+
                const totalCount = await BLOG_MODEL.countDocuments();
 
                return {

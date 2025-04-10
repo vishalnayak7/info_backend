@@ -17,7 +17,7 @@ const UserSchema = new mongoose.Schema({
   emailToken: { type: String, default: null },
 
 
-  achievements: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Achievement' }],
+  achievements: [{ type: mongoose.Schema.Types.ObjectId, ref: 'achievements' }],
   bookmarks: [{ type: mongoose.Schema.Types.ObjectId, ref: 'blogs' }],
  
 

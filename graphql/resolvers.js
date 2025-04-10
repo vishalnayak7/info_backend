@@ -15,7 +15,7 @@ export const resolvers = {
     getTopAuthorOfWeek: async () => authorController.getTopAuthorOfWeek(),
     getRandomBlogsTemp: async (_, { ...arg }) => blogController.getRandomBlogsTemp(),
     navbarDropDown: async (_, { ...arg }) => blogController.navbarDropDown({ ...arg }),
-    
+
     HomePageMostPopularBlogs: async (_, { ...arg }) => homePageController.mostPopularBlogs({ ...arg }),
     HomePageSliderLeftSide: async (_, { ...arg }) => homePageController.sliderMain({ ...arg }),
     HomePageLatestBlogsBar: async (_, { ...arg }) => homePageController.latestBlogsBar({ ...arg }),
@@ -29,7 +29,7 @@ export const resolvers = {
 
     // Profile page of User(slug)
     getUserBySlug: async (_, { ...arg }) => user_controller.getUserBySlug({ ...arg }),
-
+    getBlogsBySlugOfUser: async (_, { ...arg }) => user_controller.getBlogsBySlugOfUser({ ...arg }),
 
     // Specific Blog page of Blog(slug)
     getBlogBySlug: async (_, { ...arg }) => blogController.getBlogBySlug({ ...arg }),
