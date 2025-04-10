@@ -189,14 +189,13 @@ class BlogResolver {
      }
 
 
-     async getTopBlogsByTopAuthor({ username }) {
+     async getTopBlogsByTopAuthor() {
           try {
+               
+               let data = await USER_MODEL.find().sort({ TotalFollowers: -1 }).limit(3).select('username').lean();
+               
 
-               if (!username) {
-                    throw new Error('Field "username" is required.');
-               }
-
-               let is_Blog = await BLOG_MODEL.find({ author: { $in: username } })
+               let is_Blog = await BLOG_MODEL.find({ author: { $in: data.map((e) => { return e._id }) } })
                     .populate("author statistic")
                     .lean();
 
@@ -298,7 +297,7 @@ class BlogResolver {
                });
           }
      }
- 
+
      async getBlogs({ page = 1, limit = 10 }) {
           try {
 

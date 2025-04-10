@@ -156,7 +156,7 @@ getBlogById(_id: ID!): Blog
 getBlogBySlug(slug: String!): Blog
 getUserBySlug(slug: String!): User
 getRelatedBlogsBySlug(slug: String!): [Blog]
-getTopBlogsByTopAuthor(username: [String]): [Blog]
+getTopBlogsByTopAuthor: [Blog]
 
 getBlogsByTags(tagName: String): [Blog]
 getTopAuthorOfWeek: [Author]

@@ -36,7 +36,7 @@ export const resolvers = {
     getRelatedBlogsBySlug: async (_, { ...arg }) => blogController.getRelatedBlogsBySlug({ ...arg }),
     getTopBlogsByTopAuthor: async (_, { ...arg }) => blogController.getTopBlogsByTopAuthor({ ...arg }),
 
-
+    
     // Testing purpose and for creating fake data
     getBlogById: async (_, { ...arg }) => blogController.getBlogById({ ...arg }),
     getBlogsByTags: async (_, { ...arg }) => blogController.getBlogsByTags({ ...arg }),

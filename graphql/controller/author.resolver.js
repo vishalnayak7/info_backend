@@ -55,7 +55,7 @@ class Author_resolver {
      async getTopAuthorOfWeek() {
           try {
                let data = await USER_MODEL.find().sort({ TotalFollowers: -1 }).limit(3).select('  username avatar bio').lean();
-
+               
                let tempData = await Promise.all(data.map(async (item) => {
                     let data = await countFollowers(item._id);
 
